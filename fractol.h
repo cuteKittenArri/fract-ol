@@ -6,6 +6,7 @@
 # include <mlx.h>
 # include <X11/X.h>
 # include <stdlib.h>
+# include <stddef.h>
 # include <unistd.h>
 # include <math.h>
 
