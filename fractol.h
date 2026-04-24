@@ -52,4 +52,10 @@ typedef struct s_fractol
 	int		iteration;
 } t_fractol;
 
+//  LIB-UTILS
+void	ft_putstr_fd(char *str, int fd);
+int	ft_strncmp(char *s1, char *s2, int n);
+double	atod(char *str);
+
+
 #endif
