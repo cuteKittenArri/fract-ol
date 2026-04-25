@@ -18,10 +18,6 @@
 
 //key-press
 # define ESC 65307
-# define ARROW_RIGHT 65363
-# define ARROW_LEFT 65361
-# define ARROW_UP 65362
-# define ARROW_DOWN 65364
 
 //mouse-wheel
 # define SCROLL_UP 4
@@ -29,28 +25,29 @@
 
 typedef unsigned int	t_color;
 
+typedef struct s_data
+{
+	int	px_bits;
+	int	line_lengh;
+	int	endian;
+} t_data;
+
 typedef struct s_mlx
 {
 	void	*mlx;
 	void 	*img;
 	void	*win;
 	char	*addr;
+	t_data	*data;
 } t_mlx;
-
-typedef struct s_view
-{
-	double  offset_x;
-	double  offset_y;
-	double  zoom;
-
-} t_view;
 
 typedef struct s_fractol
 {
-	char  	*name;
+	int  	name;
 	double  julia_cx;
 	double  julia_cy;
 	int		iteration;
+	double  zoom;
 } t_fractol;
 
 //  LIB-UTILS
