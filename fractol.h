@@ -13,8 +13,8 @@
 // MACROS
 
 //window-size
-# define HEIGHT 800
-#define WIDTH 800
+# define HEIGHT 420
+#define WIDTH 420
 
 //key-press
 # define ESC 65307
@@ -31,10 +31,10 @@ typedef unsigned int	t_color;
 
 typedef struct s_mlx
 {
-	void			*mlx;
-	void 			*img;
-	void			*win;
-	t_color			*addr;
+	void	*mlx;
+	void 	*img;
+	void	*win;
+	char	*addr;
 } t_mlx;
 
 typedef struct s_view
@@ -44,6 +44,7 @@ typedef struct s_view
 	double  zoom;
 
 } t_view;
+
 typedef struct s_fractol
 {
 	char  	*name;
