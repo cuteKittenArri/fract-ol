@@ -23,6 +23,10 @@
 # define SCROLL_UP 4
 # define SCROLL_DOWN 5
 
+//colors
+# define PURPLE 0x6a329f
+# define BLACK 0x000000
+
 typedef unsigned int	t_color;
 
 typedef struct s_data
