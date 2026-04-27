@@ -24,7 +24,7 @@ static void	valid(int argc, char **argv, t_fractol *fractol)
 		invalid_arg_print();	
 }
 
-static void	init_mlx(t_mlx *mlx, t_fractol *fractol)
+static void	init_mlx(t_mlx *mlx)
 {
 	mlx->mlx = mlx_init();
 	if (!mlx->mlx)
@@ -47,12 +47,19 @@ static void	init_mlx(t_mlx *mlx, t_fractol *fractol)
 
 int	main(int argc, char **argv)
 {
-	t_mlx		*mlx;
-	t_fractol	*fractol;
+	t_mlx		mlx;
+	t_fractol	fractol;
+	t_data		data;
 
-	fractol->zoom = 1.0;
-	fractol->iteration = 69;
-	init_mlx(mlx, fractol);
-	render_main(mlx, fractol);
-	
+	fractol.zoom = 1.0;
+	fractol.iteration = 69;
+	mlx.data = &data;
+	mlx.fractol = &fractol;
+	valid(argc, argv, &fractol);
+	init_mlx(&mlx);
+	render_main(&mlx, &fractol);
+	mlx_mouse_hook(mlx.win, mouse_handler, &mlx);
+	mlx_key_hook(mlx.win, key_handler, &mlx);
+	mlx_hook(mlx.win, 17, 0, closer, &mlx);
+	mlx_loop(mlx.mlx);
 }

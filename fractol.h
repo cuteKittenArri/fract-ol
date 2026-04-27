@@ -36,15 +36,6 @@ typedef struct s_data
 	int	endian;
 } t_data;
 
-typedef struct s_mlx
-{
-	void	*mlx;
-	void 	*img;
-	void	*win;
-	char	*addr;
-	t_data	*data;
-} t_mlx;
-
 typedef struct s_fractol
 {
 	int  	name;
@@ -54,10 +45,35 @@ typedef struct s_fractol
 	double  zoom;
 } t_fractol;
 
+typedef struct s_mlx
+{
+	void		*mlx;
+	void 		*img;
+	void		*win;
+	char		*addr;
+	t_data		*data;
+	t_fractol	*fractol;
+} t_mlx;
+
+typedef struct lameth
+{
+	double	z_real;
+	double	z_imag;
+	double	c_real;
+	double	c_imag;	
+} t_lameth;
+
 //  LIB-UTILS
 void	ft_putstr_fd(char *str, int fd);
 int	ft_strncmp(char *s1, char *s2, int n);
 double	atod(char *str);
 
+//  FRACTOL-UTILS
+
+t_color	meth(double x, double y, t_fractol *fractol);
+void	render_main(t_mlx *mlx, t_fractol *fractol);
+int	closer(t_mlx *mlx);
+int	key_handler(int	key, t_mlx *mlx);
+int	mouse_handler(int button, int x, int y, t_mlx *mlx);
 
 #endif

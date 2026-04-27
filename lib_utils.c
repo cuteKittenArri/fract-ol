@@ -5,12 +5,12 @@ void	ft_putstr_fd(char *str, int fd)
 	if (!str)
 		return ;
 	while (*str)
-		write(1, str++, 1);
+		write(fd, str++, 1);
 }
 
 int	ft_strncmp(char *s1, char *s2, int n)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	
