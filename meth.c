@@ -30,7 +30,7 @@ t_color	meth(double x, double y, t_fractol *fractol)
 	t_lameth	math_obj;
 
 	i = 0;
-	meth_init(x, y, fractol, &math_obj);
+	meth_init(x * fractol->zoom, y * fractol->zoom, fractol, &math_obj);
 	while (i < fractol->iteration)
 	{
 		if ((math_obj.z_real * math_obj.z_real) + (math_obj.z_imag * math_obj.z_imag) > 4)

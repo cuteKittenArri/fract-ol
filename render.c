@@ -16,8 +16,8 @@ static void	render_pxl(double x, double y, t_fractol *fractol, t_mlx *mlx)
 	double	math_y;
 	t_color	color;
 
-	math_x = ((x / WIDTH) * 4.0 - 2.0) * fractol->zoom;
-	math_y = ((y / HEIGHT) * 4.0 - 2.0) * fractol->zoom;
+	math_x = ((x / WIDTH) * 4.0 - 2.0);
+	math_y = ((y / HEIGHT) * 4.0 - 2.0);
 	if (fractol->name)
 		color = meth(math_x, math_y, fractol);
 	else
