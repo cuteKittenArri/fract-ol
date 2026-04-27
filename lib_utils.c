@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   lib_utils.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: stmuller <stmuller@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/27 23:11:53 by stmuller          #+#    #+#             */
+/*   Updated: 2026/04/27 23:14:54 by stmuller         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 void	ft_putstr_fd(char *str, int fd)
@@ -13,15 +25,14 @@ int	ft_strncmp(char *s1, char *s2, int n)
 	int	i;
 
 	i = 0;
-	
 	if (!s1 || !s2 || n <= 0)
 		return (0);
 	while ((s1[i] || s2[i]) && i < n)
 	{
-        if (s1[i] != s2[i])
-        	return (s1[i] - s2[i]);
-        i++;
-    }
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
+	}
 	return (0);
 }
 
@@ -39,10 +50,8 @@ double	atod(char *str)
 	while (*str == ' ' || (*str >= 9 && *str <= 13))
 		str++;
 	if (*str == '-' || *str == '+')
-	{
 		if (*str++ == '-')
 			sign = -1;
-	}
 	while (*str >= '0' && *str <= '9')
 		first_part = (first_part * 10) + (*str++ - '0');
 	if (*str == '.')

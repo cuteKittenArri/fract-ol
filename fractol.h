@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractol.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: stmuller <stmuller@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/27 23:19:28 by stmuller          #+#    #+#             */
+/*   Updated: 2026/04/27 23:21:49 by stmuller         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
@@ -14,7 +26,7 @@
 
 //window-size
 # define HEIGHT 420
-#define WIDTH 420
+# define WIDTH 420
 
 //key-press
 # define ESC 65307
@@ -34,26 +46,26 @@ typedef struct s_data
 	int	px_bits;
 	int	line_lengh;
 	int	endian;
-} t_data;
+}	t_data;
 
 typedef struct s_fractol
 {
-	int  	name;
-	double  julia_cx;
-	double  julia_cy;
+	int		name;
+	double	julia_cx;
+	double	julia_cy;
 	int		iteration;
-	double  zoom;
-} t_fractol;
+	double	zoom;
+}	t_fractol;
 
 typedef struct s_mlx
 {
 	void		*mlx;
-	void 		*img;
+	void		*img;
 	void		*win;
 	char		*addr;
 	t_data		*data;
 	t_fractol	*fractol;
-} t_mlx;
+}	t_mlx;
 
 typedef struct lameth
 {
@@ -61,19 +73,19 @@ typedef struct lameth
 	double	z_imag;
 	double	c_real;
 	double	c_imag;	
-} t_lameth;
+}	t_lameth;
 
 //  LIB-UTILS
 void	ft_putstr_fd(char *str, int fd);
-int	ft_strncmp(char *s1, char *s2, int n);
+int		ft_strncmp(char *s1, char *s2, int n);
 double	atod(char *str);
 
 //  FRACTOL-UTILS
 
 t_color	meth(double x, double y, t_fractol *fractol);
-void	render_main(t_mlx *mlx, t_fractol *fractol);
-int	closer(t_mlx *mlx);
-int	key_handler(int	key, t_mlx *mlx);
-int	mouse_handler(int button, int x, int y, t_mlx *mlx);
+int		render_main(t_mlx *mlx);
+int		closer(t_mlx *mlx);
+int		key_handler(int key, t_mlx *mlx);
+int		mouse_handler(int button, int x, int y, t_mlx *mlx);
 
 #endif

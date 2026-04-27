@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   meth.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: stmuller <stmuller@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/27 23:15:17 by stmuller          #+#    #+#             */
+/*   Updated: 2026/04/27 23:16:59 by stmuller         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 static t_color	coloring(int iterations)
@@ -5,7 +17,8 @@ static t_color	coloring(int iterations)
 	return (iterations * PURPLE);
 }
 
-static void	meth_init(double x, double y, t_fractol *fractol, t_lameth *math_obj)
+static void	meth_init(double x, double y, t_fractol *fractol,
+		t_lameth *math_obj)
 {
 	if (fractol->name)
 	{
@@ -33,10 +46,13 @@ t_color	meth(double x, double y, t_fractol *fractol)
 	meth_init(x * fractol->zoom, y * fractol->zoom, fractol, &math_obj);
 	while (i < fractol->iteration)
 	{
-		if ((math_obj.z_real * math_obj.z_real) + (math_obj.z_imag * math_obj.z_imag) > 4)
-			return coloring(i);
-		tmp = (math_obj.z_real * math_obj.z_real) - (math_obj.z_imag * math_obj.z_imag) + math_obj.c_real;
-		math_obj.z_imag = 2 * math_obj.z_real * math_obj.z_imag + math_obj.c_imag;
+		if ((math_obj.z_real * math_obj.z_real)
+			+ (math_obj.z_imag * math_obj.z_imag) > 4)
+			return (coloring(i));
+		tmp = (math_obj.z_real * math_obj.z_real)
+			- (math_obj.z_imag * math_obj.z_imag) + math_obj.c_real;
+		math_obj.z_imag = 2 * math_obj.z_real * math_obj.z_imag
+			+ math_obj.c_imag;
 		math_obj.z_real = tmp;
 		i++;
 	}

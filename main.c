@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: stmuller <stmuller@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/27 23:09:39 by stmuller          #+#    #+#             */
+/*   Updated: 2026/04/27 23:11:18 by stmuller         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 #include <mlx.h>
 #include <stdlib.h>
@@ -21,7 +33,7 @@ static void	valid(int argc, char **argv, t_fractol *fractol)
 	else if (argc == 2 && !ft_strncmp(argv[1], "mandelbrot", 10))
 		fractol->name = 1;
 	else
-		invalid_arg_print();	
+		invalid_arg_print();
 }
 
 static void	init_mlx(t_mlx *mlx)
@@ -32,17 +44,18 @@ static void	init_mlx(t_mlx *mlx)
 	mlx->win = mlx_new_window(mlx->mlx, WIDTH, HEIGHT, "fractol");
 	if (!mlx->win)
 	{
-	 free(mlx->mlx);
-	 exit(1);
+		free(mlx->mlx);
+		exit(1);
 	}
 	mlx->img = mlx_new_image(mlx->mlx, WIDTH, HEIGHT);
 	if (!mlx->img)
 	{
 		mlx_destroy_window(mlx->mlx, mlx->win);
 		free(mlx->mlx);
-		exit(1);		
+		exit(1);
 	}
-	mlx->addr = mlx_get_data_addr(mlx->img, &mlx->data->px_bits, &mlx->data->line_lengh, &mlx->data->endian);
+	mlx->addr = mlx_get_data_addr(mlx->img, &mlx->data->px_bits,
+			&mlx->data->line_lengh, &mlx->data->endian);
 }
 
 int	main(int argc, char **argv)
@@ -52,14 +65,14 @@ int	main(int argc, char **argv)
 	t_data		data;
 
 	fractol.zoom = 1.0;
-	fractol.iteration = 69;
+	fractol.iteration = 100;
 	mlx.data = &data;
 	mlx.fractol = &fractol;
 	valid(argc, argv, &fractol);
 	init_mlx(&mlx);
-	render_main(&mlx, &fractol);
 	mlx_mouse_hook(mlx.win, mouse_handler, &mlx);
 	mlx_key_hook(mlx.win, key_handler, &mlx);
 	mlx_hook(mlx.win, 17, 0, closer, &mlx);
+	mlx_loop_hook(mlx.mlx, render_main, &mlx);
 	mlx_loop(mlx.mlx);
 }

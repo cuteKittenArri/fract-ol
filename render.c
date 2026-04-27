@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   render.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: stmuller <stmuller@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/27 23:11:33 by stmuller          #+#    #+#             */
+/*   Updated: 2026/04/27 23:11:34 by stmuller         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 #include <mlx.h>
 #include <stdlib.h>
@@ -25,7 +37,7 @@ static void	render_pxl(double x, double y, t_fractol *fractol, t_mlx *mlx)
 	put_px((int)x, (int)y, color, mlx);
 }
 
-void	render_main(t_mlx *mlx, t_fractol *fractol)
+int	render_main(t_mlx *mlx)
 {
 	int	x;
 	int	y;
@@ -35,7 +47,8 @@ void	render_main(t_mlx *mlx, t_fractol *fractol)
 	{
 		x = -1;
 		while (++x < WIDTH)
-			render_pxl(x, y, fractol, mlx);
+			render_pxl(x, y, mlx->fractol, mlx);
 	}
 	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->img, 0, 0);
+	return (0);
 }
