@@ -10,11 +10,6 @@ static void	put_px(int x, int y, t_color color, t_mlx *mlx)
 	*(t_color *)(mlx->addr + offset) = color;
 }
 
-double	to_math(double start, double min, double max, double end)
-{
-	return ((max - min) * (start / end) + start);	
-}
-
 static void	render_pxl(double x, double y, t_fractol *fractol, t_mlx *mlx)
 {
 	double	math_x;
@@ -24,9 +19,9 @@ static void	render_pxl(double x, double y, t_fractol *fractol, t_mlx *mlx)
 	math_x = ((4 * (x / WIDTH) + x) * fractol->zoom);
 	math_y = ((4 * (y / HEIGHT) + y) * fractol->zoom);
 	if (fractol->name)
-		color = mandel_math(math_x, math_y, fractol);
+		color = meth(math_x, math_y, fractol);
 	else
-		color = julia_math(math_x, math_y, fractol);
+		color = meth(math_x, math_y, fractol);
 	put_px((int)x, (int)y, color, mlx);
 }
 
