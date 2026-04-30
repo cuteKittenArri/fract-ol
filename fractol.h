@@ -6,7 +6,7 @@
 /*   By: stmuller <stmuller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/27 23:19:28 by stmuller          #+#    #+#             */
-/*   Updated: 2026/04/27 23:21:49 by stmuller         ###   ########.fr       */
+/*   Updated: 2026/04/30 05:06:19 by stmuller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,13 @@ typedef struct s_mlx
 	t_fractol	*fractol;
 }	t_mlx;
 
-typedef struct lameth
+typedef struct s_math
 {
 	double	z_real;
 	double	z_imag;
 	double	c_real;
 	double	c_imag;	
-}	t_lameth;
+}	t_math;
 
 //  LIB-UTILS
 void	ft_putstr_fd(char *str, int fd);
@@ -82,7 +82,7 @@ double	atod(char *str);
 
 //  FRACTOL-UTILS
 
-t_color	meth(double x, double y, t_fractol *fractol);
+t_color	fract_math(double x, double y, t_fractol *fractol);
 int		render_main(t_mlx *mlx);
 int		closer(t_mlx *mlx);
 int		key_handler(int key, t_mlx *mlx);

@@ -6,7 +6,7 @@
 /*   By: stmuller <stmuller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/27 23:11:33 by stmuller          #+#    #+#             */
-/*   Updated: 2026/04/27 23:11:34 by stmuller         ###   ########.fr       */
+/*   Updated: 2026/04/30 05:04:05 by stmuller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ static void	render_pxl(double x, double y, t_fractol *fractol, t_mlx *mlx)
 	math_x = ((x / WIDTH) * 4.0 - 2.0);
 	math_y = ((y / HEIGHT) * 4.0 - 2.0);
 	if (fractol->name)
-		color = meth(math_x, math_y, fractol);
+		color = fract_math(math_x, math_y, fractol);
 	else
-		color = meth(math_x, math_y, fractol);
+		color = fract_math(math_x, math_y, fractol);
 	put_px((int)x, (int)y, color, mlx);
 }
 
