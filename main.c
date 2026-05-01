@@ -66,6 +66,8 @@ int	main(int argc, char **argv)
 
 	fractol.zoom = 1.0;
 	fractol.iteration = 100;
+	fractol.offset_x = 0.0;
+	fractol.offset_y = 0.0;
 	mlx.data = &data;
 	mlx.fractol = &fractol;
 	valid(argc, argv, &fractol);

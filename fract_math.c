@@ -24,13 +24,13 @@ static void	math_init(double x, double y, t_fractol *fractol,
 	{
 		math_obj->z_real = 0.0;
 		math_obj->z_imag = 0.0;
-		math_obj->c_real = x;
-		math_obj->c_imag = y;
+		math_obj->c_real = x + fractol->offset_x;
+		math_obj->c_imag = y + fractol->offset_y;
 	}
 	else
 	{
-		math_obj->z_real = x;
-		math_obj->z_imag = y;
+		math_obj->z_real = x + fractol->offset_x;
+		math_obj->z_imag = y + fractol->offset_y;
 		math_obj->c_real = fractol->julia_cx;
 		math_obj->c_imag = fractol->julia_cy;
 	}

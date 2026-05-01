@@ -30,6 +30,10 @@
 
 //key-press
 # define ESC 65307
+# define UP 119
+# define DOWN 115
+# define LEFT 97
+# define RIGHT 100
 
 //mouse-wheel
 # define SCROLL_UP 4
@@ -55,6 +59,8 @@ typedef struct s_fractol
 	double	julia_cy;
 	int		iteration;
 	double	zoom;
+	double	offset_x;
+	double	offset_y;
 }	t_fractol;
 
 typedef struct s_mlx

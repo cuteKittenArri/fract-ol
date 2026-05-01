@@ -20,6 +20,14 @@ int	key_handler(int key, t_mlx *mlx)
 {
 	if (key == ESC)
 		closer(mlx);
+	else if (key == 119)
+		mlx->fractol->offset_y -= 0.5 * mlx->fractol->zoom;
+	else if (key == 115)
+		mlx->fractol->offset_y += 0.5 * mlx->fractol->zoom;
+	else if (key == 97)
+		mlx->fractol->offset_x -= 0.5 * mlx->fractol->zoom;
+	else if (key == 100)
+		mlx->fractol->offset_x += 0.5 * mlx->fractol->zoom;
 	return (0);
 }
 
